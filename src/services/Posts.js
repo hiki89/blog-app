@@ -11,12 +11,10 @@ export default class Posts {
 
     singlePost(id) {
         return axios.get(`posts/${id}`)  
+    }
 
-
-
-
-
-        
+    add(post) {
+        return axios.post('posts', post)
     }
 }
 
