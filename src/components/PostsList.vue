@@ -4,6 +4,7 @@
             <li class="list-group-item">Title: {{ post.title }}</li>
             <li class="list-group-item">Text: {{ post.text }}</li>
             <li class="list-group-item">Created at: {{ post.createdAt }}</li>
+            <router-link :to="{name:'singlePost', params: {id: post.id}}" class="btn btn-dark">View Post</router-link>
         </ul>
     </div>
 </template>
@@ -13,4 +14,12 @@ export default {
     props: ['posts']
 }
 </script>
+
+<style>
+.list-group {
+    display: inline-block;   
+    text-align: center;            
+    width: 400px;
+}                                          
+</style>
 
