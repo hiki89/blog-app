@@ -10,6 +10,7 @@
                 <input type="text" required="required" class="form-control here" v-model="post.text">
             </div>
             <button @click="addPost" class="btn btn-primary">Add</button>
+            <button name="reset" type="reset" class="btn btn-secondary">Reset</button>
         </form>
     </div>    
 </template>
