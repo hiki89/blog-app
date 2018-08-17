@@ -5,6 +5,7 @@
             <li class="list-group-item">Text: {{ post.text }}</li>
             <li class="list-group-item">Created at: {{ post.createdAt }}</li>
             <router-link :to="{name:'singlePost', params: {id: post.id}}" class="btn btn-dark">View Post</router-link>
+            <router-link :to="{name:'edit', params: {id: post.id}}" class="btn btn-dark">Edit</router-link>
         </ul>
     </div>
 </template>

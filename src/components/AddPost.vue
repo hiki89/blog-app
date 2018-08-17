@@ -9,7 +9,7 @@
                 <label for="text" class="col-4 col-form-label">Text</label>
                 <input type="text" required="required" class="form-control here" v-model="post.text">
             </div>
-            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
             <button name="reset" type="reset" class="btn btn-secondary">Reset</button>
         </form>
     </div>    
@@ -27,6 +27,13 @@ export default {
         }
     },
 
+    created () {
+        this.$route.params.id && posts.singlePost(this.$route.params.id)
+        .then((response) => {
+            this.post = response.data
+        })
+    },
+
     methods: {
         onSubmit() {
             if(this.post.title.length < 2) {
@@ -34,7 +41,7 @@ export default {
             } else if (this.post.text.length > 300) {
                 alert("Text can't have more then 300 letters")
             } else {
-                this.addPost()
+                this.post.id ? this.editPost() : this.addPost()
             }
         },
 
@@ -42,6 +49,19 @@ export default {
             posts.add(this.post)
             .then(response => {
                 this.$router.push('/posts')
+            })
+            .catch(response => {
+                console.log(response)
+            })
+        },
+
+        editPost() {
+            posts.edit(this.post)
+            .then(response => {
+                this.$router.push('/posts')
+            })
+            .catch(response => {
+                console.log(response)
             })
         }
     }
