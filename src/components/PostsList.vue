@@ -20,7 +20,8 @@ export default {
     methods: {
         deletePost(id) {
             posts.remove(id)
-            this.posts.splice(this.post, 1)
+            let index = this.posts.findIndex(p => p.id === id)
+            this.posts.splice(index, 1)
         }
     }
 }
