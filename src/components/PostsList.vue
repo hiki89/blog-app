@@ -6,13 +6,23 @@
             <li class="list-group-item">Created at: {{ post.createdAt }}</li>
             <router-link :to="{name:'singlePost', params: {id: post.id}}" class="btn btn-dark">View Post</router-link>
             <router-link :to="{name:'edit', params: {id: post.id}}" class="btn btn-dark">Edit</router-link>
+            <button @click="deletePost(post.id)">Delete</button>
         </ul>
     </div>
 </template>
 
 <script>
+import { posts } from '../services/Posts'
+
 export default {
-    props: ['posts']
+    props: ['posts'],
+
+    methods: {
+        deletePost(id) {
+            posts.remove(id)
+            this.posts.splice(this.post, 1)
+        }
+    }
 }
 </script>
 

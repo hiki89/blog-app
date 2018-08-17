@@ -20,6 +20,10 @@ export default class Posts {
     add(post) {
         return axios.post('posts', post)
     }
+
+    remove(id) {
+        return axios.delete(`posts/${id}`)
+    }
 }
 
 export const posts = new Posts()
