@@ -4,6 +4,7 @@
             <li class="list-group-item">Title: {{ post.title }}</li>
             <li class="list-group-item">Text: {{ post.text }}</li>
             <li class="list-group-item">Created at: {{ post.createdAt }}</li>
+            <li class="list-group-item">Created at: {{ post.createdAt | formatDate }}</li>
             <li class="list-group-item">Comments: {{ post.comments.length }}</li>
             <router-link :to="{name:'singlePost', params: {id: post.id}}" class="btn btn-dark">View Post</router-link>
             <router-link :to="{name:'edit', params: {id: post.id}}" class="btn btn-dark">Edit</router-link>
@@ -14,9 +15,11 @@
 
 <script>
 import { posts } from '../services/Posts'
+import { mixin1 } from '../mixins/DateMixin.js'
 
 export default {
     props: ['posts'],
+    mixins: ['mixin1'],
 
     methods: {
         deletePost(id) {
