@@ -2,8 +2,8 @@ import moment from 'moment'
 
 export const mixin1 = {
     filters: {
-        formatDate (createdAt, outputFormat = 'YYYY-MM-DD HH:mm:ss') {
-            return moment(createdAt).format(outputFormat)
+        formatDate (str, outputFormat = 'YYYY-MM-DD HH:mm:ss') {
+            return moment(str).format(outputFormat)
         },
 
         diffForHumans (str) {

@@ -3,7 +3,6 @@
         <ul class="list-group list-group-flush" v-for="(post, key) in posts" :key="key">
             <li class="list-group-item">Title: {{ post.title }}</li>
             <li class="list-group-item">Text: {{ post.text }}</li>
-            <li class="list-group-item">Created at: {{ post.createdAt }}</li>
             <li class="list-group-item">Created at: {{ post.createdAt | formatDate }}</li>
             <li class="list-group-item">Comments: {{ post.comments.length }}</li>
             <router-link :to="{name:'singlePost', params: {id: post.id}}" class="btn btn-dark">View Post</router-link>
