@@ -3,7 +3,7 @@
         <ul class="list-group list-group-flush" v-for="(comment, key) in comments" :key="key">
             <li class="list-group-item">
                 Text: {{ comment.text }}
-                <p>Created at: {{ comment.createdAt | formatDate }}</p>
+                <p>Posted {{ comment.createdAt | diffForHumans }}</p>
             </li>
         </ul>
     </div>
@@ -15,6 +15,6 @@ import { mixin1 } from '../mixins/DateMixin.js'
 
 export default {
     props: ['comments'],
-    mixins: ['mixin1']
+    mixins: [mixin1]
 }
 </script>

@@ -18,7 +18,7 @@ import { mixin1 } from '../mixins/DateMixin.js'
 
 export default {
     props: ['posts'],
-    mixins: ['mixin1'],
+    mixins: [mixin1],
 
     methods: {
         deletePost(id) {
